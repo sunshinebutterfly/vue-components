@@ -1,0 +1,108 @@
+.sun-button{
+    --sun-button-font-weight: var(--sun-font-weight-primary);
+    --sun-button-border-color: var(--sun-border-color);
+    --sun-button-bg-color: var(--sun-fill-color-blank);
+    --sun-button-text-color: var(--sun-text-color-regular);
+    --sun-button-disabled-text-color: var(--sun-disabled-text-color);
+    --sun-button-disabled-bg-color: var(--sun-fill-color-blank);
+    --sun-button-disabled-border-color: var(--sun-border-color-light);
+    --sun-button-divide-border-color: rgba(255, 255, 255, .5);
+    --sun-button-hover-text-color: var(--sun-color-primary);
+    --sun-button-hover-bg-color: var(--sun-color-primary-light-9);
+    --sun-button-active-text-color: var(--sun-button-hover-text-color);
+    --sun-button-active-border-color: var(--sun-color-primary);
+    --sun-button-active-bg-color: var(--sun-button-hover-bg-color);
+    --sun-button-outline-color: var(--sun-color-primary-light-5);
+    --sun-button-hover-link-text-color: var(--sun-color-info);
+    --sun-button-active-color: var(--sun-text-color-primary);
+}
+.sun-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--sun-button-text-color);
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    transition: .1s;
+    font-weight: var(--sun-button-font-weight);
+    user-select: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    background-color: var(--sun-button-bg-color);
+    border: var(--sun-border);
+    border-color: var(--sun-button-border-color);
+    padding: 8px 15px;
+    font-size: var(--sun-font-size-base);
+    border-radius: var(--sun-border-radius-base);
+    & + & {
+        margin-left: 12px;
+    }
+    &:hover, &:focus {
+        color: var(--sun-button-hover-text-color);
+        border-color: var(--sun-button-hover-border-color);
+        background-color: var(--sun-button-hover-bg-color);
+        outline: none;
+    }
+    &:active {
+        color: var(--sun-button-active-text-color);
+        border-color: var(--sun-button-active-border-color);
+        background-color: var(--sun-button-active-bg-color);
+        outline: none
+    }
+    &.is-plain {
+        --sun-button-hover-text-color: var(--sun-color-primary);
+        --sun-button-hover-bg-color: var(--sun-fill-color-blank);
+        --sun-button-hover-border-color: var(--sun-color-primary);
+    }
+    /* 圆角 */
+    &.is-round {
+        border-radius: var(--sun-border-radius-round)
+    }
+    &.is-circle {
+        border-radius: 50%;
+        padding: 8px
+    }
+    &.is-disabled, &.is-disabled:hover, &.is-disabled:focus {
+        color: var(--sun-button-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+        background-color: var(--sun-button-disabled-bg-color);
+        border-color: var(--sun-button-disabled-border-color);
+    }
+    [class*=sun-icon] + span{
+        margin-left: 6px;
+    }
+}
+
+@each $v in primary, success, warning, danger, info {
+    .sun-button--$(v){
+        --sun-button-text-color: var(--sun-color-white);
+        --sun-button-bg-color: var(--sun-color-$(v));
+        --sun-button-border-color: var(--sun-color-$(v));
+        --sun-button-outline-color: var(--sun-color-$(v)-light-5);
+        --sun-button-active-color: var(--sun-color-$(v)-dark-2);
+        --sun-button-hover-text-color: var(--sun-color-white);
+        --sun-button-hover-link-text-color: var(--sun-color-$(v)-light-5);
+        --sun-button-hover-bg-color: var(--sun-color-$(v)-light-3);
+        --sun-button-hover-border-color: var(--sun-color-$(v)-light-3);
+        --sun-button-active-bg-color: var(--sun-color-$(v)-dark-2);
+        --sun-button-active-border-color: var(--sun-color-$(v)-dark-2);
+        --sun-button-disabled-text-color: var(--sun-color-white);
+        --sun-button-disabled-bg-color: var(--sun-color-$(v)-light-5);
+        --sun-button-disabled-border-color: var(--sun-color-$(v)-light-5);
+    }
+    .sun-button--$(v).is-plain  {
+        --sun-button-text-color: var(--sun-color-$(v));
+        --sun-button-bg-color: var(--sun-color-$(v)-light-9);
+        --sun-button-border-color: var(--sun-color-$(v)-light-5);
+        --sun-button-hover-text-color: var(--sun-color-white);
+        --sun-button-hover-bg-color: var(--sun-color-$(v));
+        --sun-button-hover-border-color: var(--sun-color-$(v));
+        --sun-button-active-text-color: var(--sun-color-white)
+    }
+}

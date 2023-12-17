@@ -1,0 +1,63 @@
+.sun-collapse {
+    --sun-collapse-border-color: var(--sun-border-color-light);
+    --sun-collapse-header-height: 48px;
+    --sun-collapse-header-text-color: var(--sun-text-color-primary);
+    --sun-collapse-header-bg-color: var(--sun-fill-color-blank);
+    --sun-collapse-header-font-size: 13px;
+    --sun-collapse-content-bg-color: var(--sun-fill-color-blank);
+    --sun-collapse-content-font-size: 13px;
+    --sun-collapse-content-text-color: var(--sun-text-color-primary);
+    --sun-collapse-disabled-text-color: var(--sun-disabled-text-color);
+    --sun-collapse-disabled-border-color: var(--sun-border-color-light);
+    border-top: 1px solid var(--sun-collapse-border-color);
+    /* border-bottom: 1px solid var(--sun-collapse-border-color) */
+}
+.sun-collapse-item__header {
+    width: 100%;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--sun-collapse-header-height);
+    line-height: var(--sun-collapse-header-height);
+    background-color: var(--sun-collapse-header-bg-color);
+    color: var(--sun-collapse-header-text-color);
+    cursor: pointer;
+    border-bottom: 1px solid var(--sun-collapse-border-color);
+    font-size: var(--sun-collapse-header-font-size);
+    font-weight: 500;
+    transition: border-bottom-color var(--sun-transition-duration);
+    outline: none;
+    &.is-disabled{
+        color: var(--el-text-color-disabled);
+        cursor: not-allowed
+    }
+    &.is-active{
+        border-bottom-color: transparent;
+        .header-ArrowRight{
+            transform: rotate(90deg)
+        }
+    }
+    .header-ArrowRight{
+        transition: transform var(--sun-transition-duration);
+    }
+}
+.sun-collapse-item__wrap {
+    will-change: height;
+    background-color: var(--sun-collapse-content-bg-color);
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--sun-collapse-border-color);
+}
+
+.sun-collapse-item__content {
+    padding-bottom: 25px;
+    font-size: var(--el-collapse-content-font-size);
+    color: var(--el-collapse-content-text-color);
+    border-bottom: 1px solid var(--sun-collapse-border-color)
+}
+
+.silde-enter-active, .silde-leave-active {
+    transition: height .2s ease-in-out;
+}

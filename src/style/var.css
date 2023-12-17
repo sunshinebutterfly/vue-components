@@ -1,0 +1,131 @@
+/* 存放变量名称 */
+:root{
+    /* 主色 */
+    /* color-scheme: dark; */
+    --sun-color-white: #ffffff;
+
+    /* 定义button公共样式 */
+    --color-button: (
+        primary : #409eff,
+        success : #67c23a,
+        warning : #e6a23c,
+        danger : #f56c6c,
+        error : #f56c6c,
+        info: #909399,
+    );
+  
+    @each $v, $color in var(--color-button)  {
+        --sun-color-$(v): $(color);
+        @for $i from 3 to 9 by 2 {
+            --sun-color-$(v)-light-$(i): mix(#fff,$(color),.$(i))
+        }
+        --sun-color-$(v)-light-8: mix(#fff,$(color),.8);
+        --sun-color-$(v)-dark-2: mix(#fff,$(color),.2);
+    }
+    /* --sun-color-primary: #409eff;
+    --sun-color-primary-light-3: #3375b9;
+    --sun-color-primary-light-5: #2a598a;
+    --sun-color-primary-light-7: #213d5b;
+    --sun-color-primary-light-8: #1d3043;
+    --sun-color-primary-light-9: #18222c;
+    --sun-color-primary-dark-2: #66b1ff;
+    --sun-color-success: #67c23a;
+    --sun-color-success-light-3: #4e8e2f;
+    --sun-color-success-light-5: #3e6b27;
+    --sun-color-success-light-7: #2d481f;
+    --sun-color-success-light-8: #25371c;
+    --sun-color-success-light-9: #1c2518;
+    --sun-color-success-dark-2: #85ce61;
+    --sun-color-warning: #e6a23c;
+    --sun-color-warning-light-3: #a77730;
+    --sun-color-warning-light-5: #7d5b28;
+    --sun-color-warning-light-7: #533f20;
+    --sun-color-warning-light-8: #3e301c;
+    --sun-color-warning-light-9: #292218;
+    --sun-color-warning-dark-2: #ebb563;
+    --sun-color-danger: #f56c6c;
+    --sun-color-danger-light-3: #b25252;
+    --sun-color-danger-light-5: #854040;
+    --sun-color-danger-light-7: #582e2e;
+    --sun-color-danger-light-8: #412626;
+    --sun-color-danger-light-9: #2b1d1d;
+    --sun-color-danger-dark-2: #f78989;
+    --sun-color-error: #f56c6c;
+    --sun-color-error-light-3: #b25252;
+    --sun-color-error-light-5: #854040;
+    --sun-color-error-light-7: #582e2e;
+    --sun-color-error-light-8: #412626;
+    --sun-color-error-light-9: #2b1d1d;
+    --sun-color-error-dark-2: #f78989;
+    --sun-color-info: #909399;
+    --sun-color-info-light-3: #6b6d71;
+    --sun-color-info-light-5: #525457;
+    --sun-color-info-light-7: #393a3c;
+    --sun-color-info-light-8: #2d2d2f;
+    --sun-color-info-light-9: #202121;
+    --sun-color-info-dark-2: #a6a9ad; */
+    --sun-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, .36), 0px 8px 20px rgba(0, 0, 0, .72);
+    --sun-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, .72);
+    --sun-box-shadow-lighter: 0px 0px 6px rgba(0, 0, 0, .72);
+    --sun-box-shadow-dark: 0px 16px 48px 16px rgba(0, 0, 0, .72), 0px 12px 32px #000000, 0px 8px 16px -8px #000000;
+    --sun-bg-color-page: #0a0a0a;
+    --sun-bg-color: #141414;
+    --sun-bg-color-overlay: #1d1e1f;
+
+    /* 中性色 */
+    --sun-bg-color-page: #0a0a0a;
+    --sun-bg-color: #141414;
+    --sun-bg-color-overlay: #1d1e1f;
+    --sun-text-color-primary: #303133;
+    --sun-text-color-regular: #606266;
+    --sun-text-color-secondary: #A3A6AD;
+    --sun-text-color-placeholder: #8D9095;
+    --sun-text-color-disabled: #6C6E72;
+    --sun-border-color-darker: #636466;
+    --sun-border-color-dark: #58585B;
+    --sun-border-color: #dcdfe6;
+    --sun-border-color-light: #e4e7ed;
+    --sun-border-color-lighter: #ebeef5;
+    --sun-border-color-extra-light: #f2f6fc;
+    /* --sun-border-color: #4C4D4F;
+    --sun-border-color-light: #414243;
+    --sun-border-color-lighter: #ebeef5;
+    --sun-border-color-extra-light: #2B2B2C; */
+    --sun-fill-color-darker: #424243;
+    --sun-fill-color-dark: #39393A;
+    --sun-fill-color: #303030;
+    --sun-fill-color-light: #262727;
+    --sun-fill-color-lighter: #1D1D1D;
+    --sun-fill-color-extra-light: #191919;
+    --sun-fill-color-blank: transparent;
+    --sun-mask-color: rgba(0, 0, 0, .8);
+    --sun-mask-color-extra-light: rgba(0, 0, 0, .3);
+
+    /* border */
+    --sun-border-width: 1px;
+    --sun-border-style: solid;
+    --sun-border-color-hover: var(--sun-text-color-disabled);
+    --sun-border: var(--sun-border-width) var(--sun-border-style) var(--sun-border-color);
+    --sun-border-radius-base: 4px;
+    --sun-border-radius-small: 2px;
+    --sun-border-radius-round: 20px;
+    --sun-border-radius-circle: 100%;
+
+    /* 字体font  */
+    --sun-font-size-extra-large: 20px;
+    --sun-font-size-large: 18px;
+    --sun-font-size-medium: 16px;
+    --sun-font-size-base: 14px;
+    --sun-font-size-small: 13px;
+    --sun-font-size-extra-small: 12px;
+    --sun-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+    --sun-font-weight-primary: 500;
+
+    /* disabled */
+    --sun-disabled-bg-color: var(--sun-fill-color-light);
+    --sun-disabled-text-color: var(--sun-text-color-placeholder);
+    --sun-disabled-border-color: var(--sun-border-color-light);
+
+    --sun-transition-duration: .3s;
+    --sun-transition-duration-fast: .3s;
+}
